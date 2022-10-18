@@ -1,0 +1,15 @@
+C:\Users\charl\dev\yumby\bin\Debug\net6.0\yumby.exe
+C:\Users\charl\dev\yumby\bin\Debug\net6.0\yumby.deps.json
+C:\Users\charl\dev\yumby\bin\Debug\net6.0\yumby.runtimeconfig.json
+C:\Users\charl\dev\yumby\bin\Debug\net6.0\yumby.dll
+C:\Users\charl\dev\yumby\bin\Debug\net6.0\yumby.pdb
+C:\Users\charl\dev\yumby\obj\Debug\net6.0\yumby.csproj.AssemblyReference.cache
+C:\Users\charl\dev\yumby\obj\Debug\net6.0\yumby.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\charl\dev\yumby\obj\Debug\net6.0\yumby.AssemblyInfoInputs.cache
+C:\Users\charl\dev\yumby\obj\Debug\net6.0\yumby.AssemblyInfo.cs
+C:\Users\charl\dev\yumby\obj\Debug\net6.0\yumby.csproj.CoreCompileInputs.cache
+C:\Users\charl\dev\yumby\obj\Debug\net6.0\yumby.dll
+C:\Users\charl\dev\yumby\obj\Debug\net6.0\refint\yumby.dll
+C:\Users\charl\dev\yumby\obj\Debug\net6.0\yumby.pdb
+C:\Users\charl\dev\yumby\obj\Debug\net6.0\yumby.genruntimeconfig.cache
+C:\Users\charl\dev\yumby\obj\Debug\net6.0\ref\yumby.dll
