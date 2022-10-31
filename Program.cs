@@ -65,7 +65,18 @@ public static void MainMenu()
             Console.BackgroundColor = ConsoleColor.Black;
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Beep();
+            Console.Beep(440, 250);
+            Banner.Foob();
+            Console.Beep(654, 250);
+            Console.Beep(859, 250);
+            Console.Beep(1140, 250);
+            Console.Beep(465, 520);
+            Console.Beep(769, 250);
+            Console.Beep(110, 500);
+            
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Clear();
             Banner.Foob();
             Console.ReadLine();
             break;
