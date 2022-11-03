@@ -8,4 +8,9 @@ public class Recipe
     public string Instructions { get; set; }
     public double ServingSize { get; set; }
     public List<string> Tags = new List<string>();
+
+    Recipe()
+    {
+        
+    }
 }

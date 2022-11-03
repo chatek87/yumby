@@ -19,10 +19,10 @@ public static class Banner
     {
         Console.WriteLine(@"
 
-:::::::::::: ct::::::::^:::!?~~7!^::.
 .....................?YYYY5PP5GPYJJJ~ 
 G..............!7JYYJ777777??JJ5PGGP!::.:. 
 G..........^.:^!Y5Y?77777??JJJJYY5P##P?!~~~:.     
+:::::::::::: ct::::::::^:::!?~~7!^::.
 G..........!???YYYJ??????JJYYYY555PGB###foobJ^ . 
 5;;;;;;;;;;;YJJJYJJJJJJJYY5Y5555PPGGBBB#B577!7~...
 Y;;;;;;;;;;;??JJJJJJJ?JJJJJJYYYY5PGGGBBBB#~fennel..  
