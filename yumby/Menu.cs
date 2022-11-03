@@ -19,6 +19,7 @@ class Menu
     {
         Banner.WelcomeMessage();
         WriteLine(Prompt);
+        WriteLine(" ");
         for (int i = 0; i < Options.Length; i++)
         {
             string currentOption = Options[i];
@@ -27,20 +28,20 @@ class Menu
 
             if (i == SelectionIndex)
             {
-                prefix = ":)";
-                suffix = "(:";
-                ForegroundColor = ConsoleColor.Black;
-                BackgroundColor = ConsoleColor.White;
+                prefix = ":) <<";
+                suffix = ">> (:";
+                ForegroundColor = ConsoleColor.Yellow;
+                BackgroundColor = ConsoleColor.Black;
             }
             else
             {
-                prefix = " ";
-                suffix = " ";
+                prefix = "     ";
+                suffix = "     ";
                 ForegroundColor = ConsoleColor.White;
                 BackgroundColor = ConsoleColor.Black;
             }
 
-            WriteLine($"{prefix} << {currentOption} >> {suffix}");
+            WriteLine($"{prefix} {currentOption} {suffix}");
         }
         ResetColor();
     }
@@ -50,6 +51,8 @@ class Menu
         ConsoleKey keyPressed;
         do
         {
+            //BackgroundColor = ConsoleColor.Black;
+            //ForegroundColor = ConsoleColor.Yellow;
             Clear();
             DisplayOptions();
 

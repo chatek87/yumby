@@ -33,8 +33,32 @@ public static class MainMenu
 
     private static void ExitProgram()
     {
-        WriteLine("\nPress any key to exit...");
+        Clear();
+        WriteLine(@"
+
+                            ,-.
+                        _,-' - `--._
+                      ,'.:  __' _..-)       s e e   y o u   l a t e r ,  b u d d y !
+                    ,'     /,o)'  ,'   
+                   ;.    ,'`-' _,)
+                 ,'   :.   _.-','
+               ,' .  .    (   /
+              ; .:'     .. `-/
+            ,'       ;     ,'
+         _,/ .   ,      .,' ,
+       ,','     .  .  . .\,'..__
+     ,','  .:.      ' ,\ `\)``
+     `-\_..---``````-'-.`.:`._/
+     ,'   '` .` ,`- -.  ) `--..`-..
+     `-...__________..-'-.._  \
+        ``--------..`-._ ```
+                     ``    
+
+");
+        //Thread.Sleep(1250);
+        //WriteLine("\nPress any key to exit...");
         ReadKey(true);
+
         Environment.Exit(0);
     }
 
@@ -50,8 +74,8 @@ public static class MainMenu
 
     private static void MyRecipes()
     {
-        string prompt = "My Recipes";
-        string[] options = { "Browse All Recipes", "Search Recipes", "Enter New Recipe" };
+        string prompt = "my recipes";
+        string[] options = { "browse recipes", "search recipes", "enter new recipe", "back" };
         Menu recipeMenu = new Menu(prompt, options);
         int selectedIndex = recipeMenu.Run();
 
@@ -59,13 +83,16 @@ public static class MainMenu
         switch (selectedIndex)
         {
             case 0:                
-                WriteLine("You selected BROWSE ALL RECIPES");
+                WriteLine("You selected BROWSE RECIPES");
                 break;
             case 1:
                 WriteLine("You selected SEARCH RECIPES");
                 break;
             case 2:
                 WriteLine("You selected ENTER NEW RECIPE");
+                break;
+            case 3:
+                RunMainMenu();
                 break;
         }
         WriteLine("Press any key to return to Main Menu");
