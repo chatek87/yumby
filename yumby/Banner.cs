@@ -1,9 +1,12 @@
-﻿namespace yumby;
+﻿using System.Drawing;
+
+namespace yumby;
 
 public static class Banner
 {
     public static void WelcomeMessage()
     {
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
         Console.WriteLine(@"
 ██╗   ██╗    ██╗   ██╗    ███╗   ███╗    ███╗   ███╗    ███╗   ███╗    ██████╗     ██╗   ██╗    ██╗
 ╚██╗ ██╔╝    ██║   ██║    ████╗ ████║    ████╗ ████║    ████╗ ████║    ██╔══██╗    ╚██╗ ██╔╝    ██║
@@ -14,6 +17,8 @@ public static class Banner
                                                                                                    
                                                                 
 ");
+        //Console.ForegroundColor = ConsoleColor.DarkCyan;
+        Console.ResetColor();
     }
 
     public static void Foob()

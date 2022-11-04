@@ -20,7 +20,7 @@ public static class MainMenu
         switch (selectedIndex)
         {
             case 0:
-                MyRecipes();
+                RecipesMenu();
                 break;
             case 1:
                 DisplayAboutInfo();
@@ -34,22 +34,23 @@ public static class MainMenu
     private static void ExitProgram()
     {
         Clear();
+        ForegroundColor = ConsoleColor.Blue;
         WriteLine(@"
 
                             ,-.
-                        _,-' - `--._
-                      ,'.:  __' _..-)       s e e   y o u   l a t e r ,  b u d d y !
-                    ,'     /,o)'  ,'   
-                   ;.    ,'`-' _,)
-                 ,'   :.   _.-','
-               ,' .  .    (   /
-              ; .:'     .. `-/
-            ,'       ;     ,'
-         _,/ .   ,      .,' ,
-       ,','     .  .  . .\,'..__
-     ,','  .:.      ' ,\ `\)``
-     `-\_..---``````-'-.`.:`._/
-     ,'   '` .` ,`- -.  ) `--..`-..
+                        _,-' - `--._                                             
+                      ,'.:  __' _..-)     y u m m m m m m m m m m m m b y !
+                    ,'     /,o)'  ,'                             
+                   ;.    ,'`-' _,)                                                    
+                 ,'   :.   _.-','                _..----.._                    
+               ,' .  .    (   /                .'     o    '.                            
+              ; .:'     .. `-/                /   o       o  \                    
+            ,'       ;     ,'                |o        o     o|             
+         _,/ .   ,      .,' ,                /'-.._o     __.-'\                    
+       ,','     .  .  . .\,'..__             \      `````     /                
+     ,','  .:.      ' ,\ `\)``               |``--........--'`|               
+     `-\_..---``````-'-.`.:`._/               \              /                    
+     ,'   '` .` ,`- -.  ) `--..`-..            `'----------'`                    
      `-...__________..-'-.._  \
         ``--------..`-._ ```
                      ``    
@@ -65,6 +66,7 @@ public static class MainMenu
     private static void DisplayAboutInfo()
     {
         Clear();
+        ForegroundColor = ConsoleColor.Blue;
         WriteLine("Yumby is a personal recipe keeper");
         WriteLine("use it to search, store, edit, and find recipes");
         WriteLine("Press any key to return to the menu");
@@ -72,10 +74,10 @@ public static class MainMenu
         RunMainMenu();
     }
 
-    private static void MyRecipes()
+    private static void RecipesMenu()
     {
         string prompt = "my recipes";
-        string[] options = { "browse recipes", "search recipes", "enter new recipe", "back" };
+        string[] options = { "browse all", "search", "enter new recipe", "back" };
         Menu recipeMenu = new Menu(prompt, options);
         int selectedIndex = recipeMenu.Run();
 
