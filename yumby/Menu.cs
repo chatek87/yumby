@@ -17,7 +17,6 @@ class Menu
 
     private void DisplayOptions()
     {
-        Banner.WelcomeMessage();
         WriteLine(Prompt);
         WriteLine(" ");
         for (int i = 0; i < Options.Length; i++)

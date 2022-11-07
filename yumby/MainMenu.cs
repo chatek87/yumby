@@ -7,17 +7,17 @@ public static class MainMenu
     public static void Start()
     {
         Title = "=== Yumby ===";
-        RunMainMenu();
+        Run();
     }
 
-    private static void RunMainMenu()
-    {       
-        string prompt = "Welcome to Yumby!";
+    private static void Run()
+    {
+        string prompt = Banner.Yumby() + "Welcome to Yumby!";
         string[] options = { "my recipes", "about", "exit" };
-        Menu mainMenu = new Menu(prompt, options);
-        int selectedIndex = mainMenu.Run();
+        var mainMenu = new Menu(prompt, options);
+        int selectionIndex = mainMenu.Run();
 
-        switch (selectedIndex)
+        switch (selectionIndex)
         {
             case 0:
                 RecipesMenu();
@@ -35,27 +35,7 @@ public static class MainMenu
     {
         Clear();
         ForegroundColor = ConsoleColor.Blue;
-        WriteLine(@"
-
-                            ,-.
-                        _,-' - `--._                                             
-                      ,'.:  __' _..-)     y u m m m m m m m m m m m m b y !
-                    ,'     /,o)'  ,'                             
-                   ;.    ,'`-' _,)                                                    
-                 ,'   :.   _.-','                _..----.._                    
-               ,' .  .    (   /                .'     o    '.                            
-              ; .:'     .. `-/                /   o       o  \                    
-            ,'       ;     ,'                |o        o     o|             
-         _,/ .   ,      .,' ,                /'-.._o     __.-'\                    
-       ,','     .  .  . .\,'..__             \      `````     /                
-     ,','  .:.      ' ,\ `\)``               |``--........--'`|               
-     `-\_..---``````-'-.`.:`._/               \              /                    
-     ,'   '` .` ,`- -.  ) `--..`-..            `'----------'`                    
-     `-...__________..-'-.._  \
-        ``--------..`-._ ```
-                     ``    
-
-");
+        
         //Thread.Sleep(1250);
         //WriteLine("\nPress any key to exit...");
         ReadKey(true);
@@ -71,7 +51,7 @@ public static class MainMenu
         WriteLine("use it to search, store, edit, and find recipes");
         WriteLine("Press any key to return to the menu");
         ReadKey(true);
-        RunMainMenu();
+        Run();
     }
 
     private static void RecipesMenu()
@@ -94,13 +74,13 @@ public static class MainMenu
                 WriteLine("You selected ENTER NEW RECIPE");
                 break;
             case 3:
-                RunMainMenu();
+                Run();
                 break;
         }
         WriteLine("Press any key to return to Main Menu");
         ReadKey(true);
 
         //ResetColor();
-        RunMainMenu();
+        Run();
     }
 }
