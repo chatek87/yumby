@@ -12,7 +12,7 @@ public static class MainMenu
 
     private static void Run()
     {
-        string prompt = Banner.Yumby() + "Welcome to Yumby!";
+        string prompt = Banner.YumbyArt() + "Welcome to Yumby!";
         string[] options = { "my recipes", "about", "exit" };
         var mainMenu = new Menu(prompt, options);
         int selectionIndex = mainMenu.Run();
@@ -26,21 +26,9 @@ public static class MainMenu
                 DisplayAboutInfo();
                 break;
             case 2:
-                ExitProgram();
+                ExitMenu.Start();
                 break;
         }
-    }
-
-    private static void ExitProgram()
-    {
-        Clear();
-        ForegroundColor = ConsoleColor.Blue;
-        
-        //Thread.Sleep(1250);
-        //WriteLine("\nPress any key to exit...");
-        ReadKey(true);
-
-        Environment.Exit(0);
     }
 
     private static void DisplayAboutInfo()

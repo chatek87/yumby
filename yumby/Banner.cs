@@ -1,10 +1,9 @@
-﻿using static System.Console;
-namespace yumby;
+﻿namespace yumby;
 
 public static class Banner
 {
 //----------------------------------------------------------------------------------------------------------------------
-    public static string Yumby()
+    public static string YumbyArt()
     {
         const string output = @"
 ██╗   ██╗    ██╗   ██╗    ███╗   ███╗    ███╗   ███╗    ███╗   ███╗    ██████╗     ██╗   ██╗    ██╗
@@ -20,7 +19,7 @@ public static class Banner
     }
 //----------------------------------------------------------------------------------------------------------------------
     
-    public static string Foob()
+    public static string FoobArt()
     {
         const string output = @"
 
