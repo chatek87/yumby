@@ -11,7 +11,7 @@ public static class MainMenu
 
     private static void Run()
     {
-        string prompt = Banner.YumbyArt() + "Welcome to Yumby!";
+        string prompt = Banner.YumbyArt() + "welcome to yumby!";
         string[] options = { "my recipes", "about", "exit" };
         var mainMenu = new Menu(prompt, options);
         int selectionIndex = mainMenu.Run();

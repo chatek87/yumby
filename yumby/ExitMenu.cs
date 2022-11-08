@@ -22,21 +22,11 @@ public static class ExitMenu
             case 1:
                 MainMenu.Start();
                 break;
-            
-        // Console.Clear();
-        // Console.ForegroundColor = ConsoleColor.Blue;
-        // Console.WriteLine(Banner.ExitArt());
-        //
-        // //Thread.Sleep(1250);
-        // //WriteLine("\nPress any key to exit...");
-        // Console.ReadKey(true);
         }
-
     }
     
     private static void ExitProgram()
     {
-
         Environment.Exit(0);
     }
 }

@@ -1,7 +1,6 @@
 ﻿namespace yumby;
 using static System.Console;        
 
-
 class Menu
 {
     private int SelectionIndex;
@@ -76,8 +75,8 @@ class Menu
                 }
 
             }
-        } while (keyPressed != ConsoleKey.Enter);
-
+        } 
+        while (keyPressed != ConsoleKey.Enter);
         return SelectionIndex;
     }
 }
