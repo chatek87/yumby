@@ -29,19 +29,19 @@ class Menu
                 prefix = ":) <<";
                 suffix = ">> (:";
                 ForegroundColor = ConsoleColor.Yellow;
-                BackgroundColor = ConsoleColor.Black;
+                // BackgroundColor = ConsoleColor.Black;
             }
             else
             {
                 prefix = "     ";
                 suffix = "     ";
-                ForegroundColor = ConsoleColor.White;
-                BackgroundColor = ConsoleColor.Black;
+                ForegroundColor = ConsoleColor.DarkMagenta;
+                // BackgroundColor = ConsoleColor.Black;
             }
 
             WriteLine($"{prefix} {currentOption} {suffix}");
         }
-        ResetColor();
+        ForegroundColor = ConsoleColor.DarkMagenta;
     }
 
     public int Run()

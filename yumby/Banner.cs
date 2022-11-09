@@ -5,6 +5,7 @@ public static class Banner
 //----------------------------------------------------------------------------------------------------------------------
     public static string YumbyArt()
     {
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
         const string output = @"
                   ___           ___           ___           ___                               
       ___        /__/\         /__/\         /__/\         /__/\         _____          ___   
@@ -21,6 +22,7 @@ public static class Banner
                                                                                                    
                                                                 
  ";
+        // Console.ForegroundColor = ConsoleColor.White;
         return output;
     }
 //----------------------------------------------------------------------------------------------------------------------
