@@ -1,7 +1,7 @@
 ﻿namespace yumby;
 using static Console;
 
-public static class MainMenu
+public class MainMenu
 {
     public static void Start()
     {
@@ -33,7 +33,6 @@ public static class MainMenu
     private static void DisplayAboutInfo()
     {
         Clear();
-        ForegroundColor = ConsoleColor.Blue;
         WriteLine("Yumby is a personal recipe keeper");
         WriteLine("use it to search, store, edit, and find recipes");
         WriteLine("Press any key to return to the menu");
