@@ -1,6 +1,6 @@
 ﻿namespace yumby;
 
-public class MenuBuilder
+abstract class MenuBuilder
 {
     
 }

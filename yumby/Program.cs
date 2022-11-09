@@ -1,9 +1,3 @@
-﻿namespace yumby;
+﻿using yumby;
 
-class Program
-{
-    static void Main(string[] args)
-    {
-        MainMenu.Start();
-    }
-}
+MainMenu.Start();

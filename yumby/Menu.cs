@@ -1,30 +1,30 @@
 ﻿namespace yumby;
-using static System.Console;        
+using static Console;        
 
 class Menu
 {
-    private int SelectionIndex;
-    private string[] Options;
-    private string Prompt;
+    private int _selectionIndex;
+    private string[] _options;
+    private string _prompt;
 
     public Menu(string prompt, string[] options)
     {
-        Prompt = prompt;
-        Options = options;
-        SelectionIndex = 0;
+        _prompt = prompt;
+        _options = options;
+        _selectionIndex = 0;
     }
 
     private void DisplayOptions()
     {
-        WriteLine(Prompt);
+        WriteLine(_prompt);
         WriteLine(" ");
-        for (int i = 0; i < Options.Length; i++)
+        for (int i = 0; i < _options.Length; i++)
         {
-            string currentOption = Options[i];
+            string currentOption = _options[i];
             string prefix;
             string suffix;
 
-            if (i == SelectionIndex)
+            if (i == _selectionIndex)
             {
                 prefix = ":) <<";
                 suffix = ">> (:";
@@ -60,23 +60,23 @@ class Menu
             // Update SelectionIndex based on arrow keys.
             if (keyPressed == ConsoleKey.UpArrow)
             {
-                SelectionIndex--;
-                if (SelectionIndex == -1)
+                _selectionIndex--;
+                if (_selectionIndex == -1)
                 {
-                    SelectionIndex = Options.Length - 1;
+                    _selectionIndex = _options.Length - 1;
                 }
             }
             else if (keyPressed == ConsoleKey.DownArrow)
             {
-                SelectionIndex++;
-                if (SelectionIndex == Options.Length)
+                _selectionIndex++;
+                if (_selectionIndex == _options.Length)
                 {
-                    SelectionIndex = 0;
+                    _selectionIndex = 0;
                 }
 
             }
         } 
         while (keyPressed != ConsoleKey.Enter);
-        return SelectionIndex;
+        return _selectionIndex;
     }
 }

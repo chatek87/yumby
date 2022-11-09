@@ -24,16 +24,10 @@ public static class RecipeMenu
                 break;
             case 2:
                 Console.WriteLine("You selected ENTER NEW RECIPE");
-                Console.Write("Recipe title: ");
-                string? recipeName = Console.ReadLine();
-                var myRecipe = new Recipe(recipeName) ;
-                Console.Write("Recipe instructions: ");
-                myRecipe.Instructions = Console.ReadLine();
+                var myRecipeBook = new RecipeBook();
+                myRecipeBook.CreateNewRecipe();
                 
-                Console.Clear();
-                Console.WriteLine($"You entered {myRecipe.Name} for your recipe name");
-                Console.WriteLine($"{myRecipe.Name} INSTRUCTIONS: {myRecipe.Instructions}");
-                
+
                 Console.WriteLine("Press any key to return to Main Menu");
                 Console.ReadKey(true);
                 MainMenu.Start();
