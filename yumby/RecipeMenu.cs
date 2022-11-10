@@ -30,7 +30,7 @@ public static class RecipeMenu
                 Console.Clear();
                 Console.WriteLine("You selected ENTER NEW RECIPE");
                 
-                Utilities.CreateNewRecipe();
+                RecipeBook.CreateNewRecipe();
                 Console.WriteLine("Press any key to return to previous menu");
                 Console.ReadKey(true);
                 Start();

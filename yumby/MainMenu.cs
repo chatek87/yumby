@@ -11,7 +11,7 @@ public class MainMenu
 
     private static void Run()
     {
-        var myRecipeBook = new Utilities();
+        var myRecipeBook = new RecipeBook();
         string prompt = Banner.YumbyArt() + "welcome to yumby!";
         string[] options = { "my recipes", "about", "exit" };
         var mainMenu = new Menu(prompt, options);
