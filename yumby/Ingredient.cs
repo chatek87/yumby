@@ -2,8 +2,8 @@
 
 public class Ingredient
 {
-    public string? IngredientName { get; set; }
-    public string? Quantity { get; set; }
-    // public string? Quality { get; set; }
+    public string? Name { get; set; }
+    public double? Quantity { get; set; }
+    public string? Unit { get; set; }
     //nutritional info?
 }

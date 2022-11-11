@@ -6,7 +6,8 @@ class Program
     {
         if (args.Length == 0)
         {
-        MainMenu.Start(); 
+            Console.Title = "=== Yumby ===";
+            MainMenu.Start(); 
         }
         else
         {

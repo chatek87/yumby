@@ -5,7 +5,7 @@ public class MainMenu
 {
     public static void Start()
     {
-        Title = "=== Yumby ===";
+        
         Run();
     }
 

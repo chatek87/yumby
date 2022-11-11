@@ -1,4 +1,5 @@
 ﻿namespace yumby;
+using static System.Console;
 
 public static class ExitMenu
 {

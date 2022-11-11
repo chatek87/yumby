@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+﻿using static System.Console;
 
 namespace yumby;
 
@@ -19,28 +19,28 @@ public static class RecipeMenu
         switch (selectedIndex)
         {
             case 0:                
-                Console.Clear();
-                Console.WriteLine("You selected BROWSE RECIPES");
+                Clear();
+                WriteLine("You selected BROWSE RECIPES");
                 break;
             case 1:
-                Console.Clear();
-                Console.WriteLine("You selected SEARCH RECIPES");
+                Clear();
+                WriteLine("You selected SEARCH RECIPES");
                 break;
             case 2:
-                Console.Clear();
-                Console.WriteLine("You selected ENTER NEW RECIPE");
+                Clear();
+                WriteLine("You selected ENTER NEW RECIPE");
                 
                 RecipeBook.CreateNewRecipe();
-                Console.WriteLine("Press any key to return to previous menu");
-                Console.ReadKey(true);
+                WriteLine("Press any key to return to previous menu");
+                ReadKey(true);
                 Start();
                 break;
             case 3:
                 MainMenu.Start();
                 break;
         }
-        Console.WriteLine("Press any key to return to Main Menu");
-        Console.ReadKey(true);
+        WriteLine("Press any key to return to Main Menu");
+        ReadKey(true);
 
     }
 }
