@@ -8,15 +8,24 @@ public class Recipe
     public List<string> Instructions = new List<string>();
     public double ServingsYielded { get; set; }
 
-    public void AddIngredient()
+    public Ingredient AddNewIngredient()
     {
         var ingredient = new Ingredient();
-        WriteLine("Enter ingredient name: ");
+        Write("Enter ingredient name: ");
         ingredient.Name = ReadLine();
-        WriteLine("Enter ingredient quantity: ");
-        ingredient.Quantity = Double.Parse(ReadLine());
-        WriteLine("Enter ingredient unit: ");
+        Write("Enter ingredient quantity: ");
+        ingredient.Quantity = decimal.Parse(ReadLine());
+        Write("Enter ingredient unit: ");
         ingredient.Unit = ReadLine();
+        
+        return ingredient;
     }
 
+    public string AddInstructionsLine()
+    {
+        var instructionsLine = ReadLine();
+        return instructionsLine;
+    }
+
+    
 }

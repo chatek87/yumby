@@ -14,18 +14,28 @@ public class RecipeBook
         Write("Recipe name: ");
         myRecipe.Name = ReadLine();
         
-        //AddIngredients()
-        myRecipe.AddIngredient();
-        WriteLine("You added an ingredient. Add another?");
+        string[] options = { "yes", "no" };
+        myRecipe.Ingredients.Add(myRecipe.AddNewIngredient());
+        var menu = new Menu("Add another ingredient?", options);
+        int selectionIndex = menu.Run();
+        switch (selectionIndex)
+        {
+            case 0:
+                myRecipe.Ingredients.Add(myRecipe.AddNewIngredient());
+                break;
+            case 1:
+                break;
+        }
         
-        //AddInstructions()
-        Write("Recipe instructions: ");
-        myRecipe.Instructions = new List<string> { ReadLine()! };
+        
+        WriteLine("Recipe instructions: \n(type one line at a time, followed by \"ENTER\"");
+        myRecipe.Instructions.Add(myRecipe.AddInstructionsLine());
+        
         Clear();
         
-        // myRecipe.Ingredients.Add();
-        // Console.WriteLine($"You entered {myRecipe.Name} for your recipe name");
-        // Console.WriteLine($"{myRecipe.Name} INSTRUCTIONS: {myRecipe.Instructions}");
+        Console.WriteLine($"{myRecipe.Name}");
+        Console.WriteLine($"Ingredients: {myRecipe.Ingredients.Count}");
+        Console.WriteLine($"{myRecipe.Name} INSTRUCTIONS: {myRecipe.Instructions.Count}");
         
         return myRecipe;
     }
@@ -35,11 +45,6 @@ public class RecipeBook
         
     }
 
-    public void SaveRecipe()
-    {
-        
-    }
-    
     public void ListAllRecipes()
     {
         

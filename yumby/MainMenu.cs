@@ -5,13 +5,11 @@ public class MainMenu
 {
     public static void Start()
     {
-        
         Run();
     }
 
     private static void Run()
     {
-        var myRecipeBook = new RecipeBook();
         string prompt = Banner.YumbyArt() + "welcome to yumby!";
         string[] options = { "my recipes", "about", "exit" };
         var mainMenu = new Menu(prompt, options);

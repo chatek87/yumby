@@ -7,6 +7,7 @@ class Program
         if (args.Length == 0)
         {
             Console.Title = "=== Yumby ===";
+            var myRecipeBook = new RecipeBook();
             MainMenu.Start(); 
         }
         else
