@@ -11,6 +11,7 @@ public class Recipe
     public Ingredient AddNewIngredient()
     {
         var ingredient = new Ingredient();
+        
         Write("Enter ingredient name: ");
         ingredient.Name = ReadLine();
         Write("Enter ingredient quantity: ");

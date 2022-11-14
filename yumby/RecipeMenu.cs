@@ -1,6 +1,6 @@
-﻿using static System.Console;
+﻿namespace yumby;
+using static System.Console;
 
-namespace yumby;
 
 public static class RecipeMenu
 {
@@ -31,6 +31,7 @@ public static class RecipeMenu
                 WriteLine("You selected ENTER NEW RECIPE");
                 
                 RecipeBook.CreateNewRecipe();
+                
                 WriteLine("Press any key to return to previous menu");
                 ReadKey(true);
                 Start();

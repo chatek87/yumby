@@ -14,28 +14,52 @@ public class RecipeBook
         Write("Recipe name: ");
         myRecipe.Name = ReadLine();
         
-        string[] options = { "yes", "no" };
         myRecipe.Ingredients.Add(myRecipe.AddNewIngredient());
-        var menu = new Menu("Add another ingredient?", options);
-        int selectionIndex = menu.Run();
-        switch (selectionIndex)
-        {
-            case 0:
-                myRecipe.Ingredients.Add(myRecipe.AddNewIngredient());
-                break;
-            case 1:
-                break;
-        }
+        string[] options1 = { "add another ingredient", "add recipe instructions" };
+        string prompt1 = "";//Add another ingredient?";
+        var menu1 = new Menu(prompt1, options1);
         
+        int selectionIndex1 = menu1.Run();
+        while (selectionIndex1 == 0)
+        {
+            myRecipe.Ingredients.Add(myRecipe.AddNewIngredient());
+            selectionIndex1 = menu1.Run();
+        }
+        // switch (selectionIndex)
+        // {
+        //     case 0:
+        //         myRecipe.Ingredients.Add(myRecipe.AddNewIngredient());
+        //         break;
+        //     case 1:
+        //         break;
+        // }
         
         WriteLine("Recipe instructions: \n(type one line at a time, followed by \"ENTER\"");
         myRecipe.Instructions.Add(myRecipe.AddInstructionsLine());
+        string[] options2 = { "add another line", "finish" };
+        string prompt2 = "";
+        var menu2 = new Menu(prompt2, options2);
+        int selectionIndex2 = menu2.Run();
+        while (selectionIndex2 == 0)
+        {
+            myRecipe.Instructions.Add((myRecipe.AddInstructionsLine()));
+            selectionIndex2 = menu2.Run();
+        }
         
+        
+        // switch (selectionIndex)
+        // {
+        //     case 0:
+        //         myRecipe.Instructions.Add(myRecipe.AddInstructionsLine());
+        //         break;
+        //     case 1:
+        //         break;
+        // }
         Clear();
         
         Console.WriteLine($"{myRecipe.Name}");
-        Console.WriteLine($"Ingredients: {myRecipe.Ingredients.Count}");
-        Console.WriteLine($"{myRecipe.Name} INSTRUCTIONS: {myRecipe.Instructions.Count}");
+        Console.WriteLine($"Ingredients: {myRecipe.Ingredients}");
+        Console.WriteLine($"{myRecipe.Name} INSTRUCTIONS: {myRecipe.Instructions}");
         
         return myRecipe;
     }
