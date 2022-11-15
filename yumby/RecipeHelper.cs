@@ -1,12 +1,9 @@
 ﻿namespace yumby;
 using static Console;
-using System.Text.Json;
 
-public class RecipeHelper
+
+public static class RecipeHelper
 {
-    //public string? RecipeBookName { get; set; }
-    //public static Dictionary<string, Recipe> MyRecipes = new Dictionary<string, Recipe>();
-  
     public static Recipe CreateNewRecipe()
     {
         var myRecipe = new Recipe();
@@ -14,8 +11,9 @@ public class RecipeHelper
         Write("Recipe name: ");
         myRecipe.Name = ReadLine();
         
+        //TODO: FIGURE OUT WHY THE SUBSEQUENT FIELDS ARE NOT BEING SAVED 
         myRecipe.Ingredients.Add(myRecipe.AddNewIngredient());
-        string[] options1 = { "add another ingredient", "add recipe instructions" };
+        string[] options1 = { "add another ingredient", "done adding ingredients" };
         string prompt1 = $"<< {myRecipe.Name} ingredients >>";//Add another ingredient?";
         var menu1 = new Menu(prompt1, options1);
         
@@ -25,17 +23,11 @@ public class RecipeHelper
             myRecipe.Ingredients.Add(myRecipe.AddNewIngredient());
             selectionIndex1 = menu1.Run();
         }
-
-        do Write("How many servings does this recipe yield?");
+        Clear();
+        
+        do Write("Enter number of servings yielded: ");
         while (!double.TryParse(ReadLine(), out myRecipe.ServingsYielded));
-        // switch (selectionIndex)
-        // {
-        //     case 0:
-        //         myRecipe.Ingredients.Add(myRecipe.AddNewIngredient());
-        //         break;
-        //     case 1:
-        //         break;
-        // }
+        Clear();
         
         WriteLine("Recipe instructions: \n(type one line at a time, followed by \"ENTER\"");
         myRecipe.Instructions.Add(myRecipe.AddInstructionsLine());
@@ -48,16 +40,7 @@ public class RecipeHelper
             myRecipe.Instructions.Add((myRecipe.AddInstructionsLine()));
             selectionIndex2 = menu2.Run();
         }
-        
-        
-        // switch (selectionIndex)
-        // {
-        //     case 0:
-        //         myRecipe.Instructions.Add(myRecipe.AddInstructionsLine());
-        //         break;
-        //     case 1:
-        //         break;
-        // }
+
         Clear();
         
         Console.WriteLine($"{myRecipe.Name}");
@@ -67,12 +50,12 @@ public class RecipeHelper
         return myRecipe;
     }
 
-    public void EditRecipe()
+    public static void DisplayRecipe(Recipe recipe)
     {
         
     }
 
-    public void ListAllRecipes()
+    public static void ListAllRecipes()
     {
         
     }
