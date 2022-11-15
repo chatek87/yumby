@@ -1,11 +1,30 @@
-﻿namespace yumby;
+﻿using System.Text.Json;
+
+namespace yumby;
 using static Console;
 
 
 public static class RecipeMenu
 {
+    public static Dictionary<string, Recipe> RecipeBook = new Dictionary<string, Recipe>();
     public static void Start()
     {
+        //RecipeBook.Add("Meatuhbawl", new Recipe());
+        //populate dictionary with JSON first
+        try
+        {
+            ReadFromFilePopulateDictionary(RecipeBook);
+        }
+        catch (Exception e)
+        {
+            var jsonString = JsonSerializer.Serialize(RecipeBook);
+            var jsonDirectory = Path.Combine(Directory.GetCurrentDirectory(), "data");
+            var jsonFilePath = Path.Combine(jsonDirectory, "RecipeBook.json");
+            Directory.CreateDirectory(jsonDirectory);
+            File.WriteAllText(jsonFilePath, jsonString);
+            throw;
+        }
+
         Run();
     }
     private static void Run()
@@ -29,9 +48,11 @@ public static class RecipeMenu
             case 2:
                 Clear();
                 WriteLine("You selected ENTER NEW RECIPE");
-                 
-                RecipeBook.CreateNewRecipe();
-                
+                Recipe tempRecipe = RecipeHelper.CreateNewRecipe();
+                String tempName = tempRecipe.Name;
+                RecipeBook.Add(tempName ,tempRecipe);
+                WriteToFile(RecipeBook);
+
                 WriteLine("Press any key to return to previous menu");
                 ReadKey(true);
                 Start();
@@ -43,6 +64,40 @@ public static class RecipeMenu
         WriteLine("Press any key to return to Main Menu");
         ReadKey(true);
         MainMenu.Start();
+    }
 
+    public static Dictionary<String, Recipe> ReadFromFilePopulateDictionary(Dictionary<String, Recipe> dict)
+    {
+        var jsonDirectory = Path.Combine(Directory.GetCurrentDirectory(), "data");
+
+        var jsonFilePath = Path.Combine(jsonDirectory, "RecipeBook.json");
+        
+        var contents = File.ReadAllText(jsonFilePath);
+
+        var deserializedDictionary = JsonSerializer.Deserialize<Dictionary<String, Recipe>>(contents);
+
+        // read from file and populate dictionary
+        
+        return deserializedDictionary;
+    }
+    public static void WriteToFile(Dictionary<String, Recipe> dict)
+    {
+        //check to see if file exists in directory already
+        //if it does, erase the file and create the new one using the dictionary
+        //if it doesn't (1st recipe added probably) then create the new file 
+        var jsonString = JsonSerializer.Serialize(dict);
+
+        var jsonDirectory = Path.Combine(Directory.GetCurrentDirectory(), "data");
+
+        /*if (!Directory.Exists(jsonDirectory))
+        {
+            Directory.CreateDirectory(jsonDirectory);
+        }*/
+
+        var jsonFilePath = Path.Combine(jsonDirectory, "RecipeBook.json");
+        
+        File.WriteAllText(jsonFilePath, jsonString);
+
+       
     }
 }

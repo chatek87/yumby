@@ -2,9 +2,9 @@
 using static Console;
 using System.Text.Json;
 
-public class RecipeBook
+public class RecipeHelper
 {
-    public string? RecipeBookName { get; set; }
+    //public string? RecipeBookName { get; set; }
     //public static Dictionary<string, Recipe> MyRecipes = new Dictionary<string, Recipe>();
   
     public static Recipe CreateNewRecipe()
