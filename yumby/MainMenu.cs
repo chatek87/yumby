@@ -1,7 +1,7 @@
 ﻿namespace yumby;
 using static Console;
 
-public class MainMenu
+public static class MainMenu
 {
     public static void Start()
     {
@@ -34,7 +34,7 @@ public class MainMenu
         Clear();
         WriteLine("Yumby is a personal recipe keeper");
         WriteLine("use it to search, store, edit, and find recipes");
-        WriteLine("Press any key to return to the menu");
+        WriteLine("Press any key to return to the Main Menu");
         ReadKey(true);
         Run();
     }

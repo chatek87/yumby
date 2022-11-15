@@ -5,8 +5,8 @@ public class Recipe
 {
     public string? Name { get; set; }
     public List<Ingredient> Ingredients = new List<Ingredient>();
-    public List<string> Instructions = new List<string>();
-    public double ServingsYielded { get; set; }
+    public List<string?> Instructions = new List<string?>();
+    public double ServingsYielded;
 
     public Ingredient AddNewIngredient()
     {
@@ -14,17 +14,19 @@ public class Recipe
         
         Write("Enter ingredient name: ");
         ingredient.Name = ReadLine();
-        Write("Enter ingredient quantity: ");
-        ingredient.Quantity = decimal.Parse(ReadLine());
+        
+        do Write("Enter ingredient quantity: ");
+        while (!double.TryParse(Console.ReadLine(), out ingredient.Quantity));
+        //ingredient.Quantity = decimal.Parse(ReadLine());
         Write("Enter ingredient unit: ");
         ingredient.Unit = ReadLine();
         
         return ingredient;
     }
 
-    public string AddInstructionsLine()
+    public string? AddInstructionsLine()
     {
-        var instructionsLine = ReadLine();
+        string? instructionsLine = ReadLine();
         return instructionsLine;
     }
 

@@ -1,5 +1,5 @@
 ﻿namespace yumby;
-using static System.Console;
+using static Console;
 
 
 public static class RecipeMenu
@@ -29,7 +29,7 @@ public static class RecipeMenu
             case 2:
                 Clear();
                 WriteLine("You selected ENTER NEW RECIPE");
-                
+                 
                 RecipeBook.CreateNewRecipe();
                 
                 WriteLine("Press any key to return to previous menu");
@@ -42,6 +42,7 @@ public static class RecipeMenu
         }
         WriteLine("Press any key to return to Main Menu");
         ReadKey(true);
+        MainMenu.Start();
 
     }
 }

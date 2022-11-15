@@ -5,8 +5,8 @@ using System.Text.Json;
 public class RecipeBook
 {
     public string? RecipeBookName { get; set; }
-    public Dictionary<string, Recipe> MyRecipeBook = new Dictionary<string, Recipe>();
-   
+    //public static Dictionary<string, Recipe> MyRecipes = new Dictionary<string, Recipe>();
+  
     public static Recipe CreateNewRecipe()
     {
         var myRecipe = new Recipe();
@@ -16,7 +16,7 @@ public class RecipeBook
         
         myRecipe.Ingredients.Add(myRecipe.AddNewIngredient());
         string[] options1 = { "add another ingredient", "add recipe instructions" };
-        string prompt1 = "";//Add another ingredient?";
+        string prompt1 = $"<< {myRecipe.Name} ingredients >>";//Add another ingredient?";
         var menu1 = new Menu(prompt1, options1);
         
         int selectionIndex1 = menu1.Run();
@@ -25,6 +25,9 @@ public class RecipeBook
             myRecipe.Ingredients.Add(myRecipe.AddNewIngredient());
             selectionIndex1 = menu1.Run();
         }
+
+        do Write("How many servings does this recipe yield?");
+        while (!double.TryParse(ReadLine(), out myRecipe.ServingsYielded));
         // switch (selectionIndex)
         // {
         //     case 0:
@@ -37,7 +40,7 @@ public class RecipeBook
         WriteLine("Recipe instructions: \n(type one line at a time, followed by \"ENTER\"");
         myRecipe.Instructions.Add(myRecipe.AddInstructionsLine());
         string[] options2 = { "add another line", "finish" };
-        string prompt2 = "";
+        string prompt2 = $"<< {myRecipe.Name} instructions >>";
         var menu2 = new Menu(prompt2, options2);
         int selectionIndex2 = menu2.Run();
         while (selectionIndex2 == 0)
@@ -60,7 +63,7 @@ public class RecipeBook
         Console.WriteLine($"{myRecipe.Name}");
         Console.WriteLine($"Ingredients: {myRecipe.Ingredients}");
         Console.WriteLine($"{myRecipe.Name} INSTRUCTIONS: {myRecipe.Instructions}");
-        
+
         return myRecipe;
     }
 
