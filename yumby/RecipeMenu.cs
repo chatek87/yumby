@@ -1,8 +1,6 @@
 ﻿using System.Text.Json;
-
 namespace yumby;
 using static Console;
-
 
 public static class RecipeMenu
 {
@@ -10,20 +8,20 @@ public static class RecipeMenu
     public static void Start()
     {
         //RecipeBook.Add("Meatuhbawl", new Recipe());
-        //populate dictionary with JSON first
-        try
-        {
-            ReadFromFilePopulateDictionary(RecipeBook);
-        }
-        catch (Exception e)
-        {
-            var jsonString = JsonSerializer.Serialize(RecipeBook);
-            var jsonDirectory = Path.Combine(Directory.GetCurrentDirectory(), "data");
-            var jsonFilePath = Path.Combine(jsonDirectory, "RecipeBook.json");
-            Directory.CreateDirectory(jsonDirectory);
-            File.WriteAllText(jsonFilePath, jsonString);
-            throw;
-        }
+        // populate dictionary with JSON first
+         try
+         {
+             ReadFromFilePopulateDictionary(RecipeBook);
+         }
+         catch (Exception e)
+         {
+             var jsonString = JsonSerializer.Serialize(RecipeBook);
+             var jsonDirectory = Path.Combine(Directory.GetCurrentDirectory(), "data");
+             var jsonFilePath = Path.Combine(jsonDirectory, "RecipeBook.json");
+             Directory.CreateDirectory(jsonDirectory);
+             File.WriteAllText(jsonFilePath, jsonString);
+             throw;
+         }
 
         Run();
     }
