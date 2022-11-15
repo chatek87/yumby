@@ -18,7 +18,7 @@ public class Recipe
         double ingredientQuantity;
         do Write("Enter ingredient quantity: ");
         while (!double.TryParse(Console.ReadLine(), out ingredientQuantity));
-        ingredientQuantity = ingredient.Quantity;
+        ingredient.Quantity = ingredientQuantity;
         
         Write("Enter ingredient unit: ");
         ingredient.Unit = ReadLine();

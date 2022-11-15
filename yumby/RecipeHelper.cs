@@ -30,7 +30,7 @@ public static class RecipeHelper
         double myRecipeServingsYielded;
         do Write("Enter number of servings yielded: ");
         while (!double.TryParse(ReadLine(), out myRecipeServingsYielded));
-        myRecipeServingsYielded = myRecipe.ServingsYielded;
+        myRecipe.ServingsYielded = myRecipeServingsYielded;
         Clear();
         
         WriteLine("Recipe instructions: \n(type one line at a time, followed by \"ENTER\"");
