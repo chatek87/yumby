@@ -4,9 +4,9 @@ using static Console;
 public class Recipe
 {
     public string? Name { get; set; }
-    public List<Ingredient> Ingredients = new List<Ingredient>();
-    public List<string?> Instructions = new List<string?>();
-    public double ServingsYielded;
+    public List<Ingredient> Ingredients { get; set; }
+    public List<string> Instructions { get; set; }
+    public double ServingsYielded { get; set; }
 
     public Ingredient AddNewIngredient()
     {
@@ -14,9 +14,11 @@ public class Recipe
         
         Write("Enter ingredient name: ");
         ingredient.Name = ReadLine();
-        
+
+        double ingredientQuantity;
         do Write("Enter ingredient quantity: ");
-        while (!double.TryParse(Console.ReadLine(), out ingredient.Quantity));
+        while (!double.TryParse(Console.ReadLine(), out ingredientQuantity));
+        ingredientQuantity = ingredient.Quantity;
         
         Write("Enter ingredient unit: ");
         ingredient.Unit = ReadLine();
@@ -24,9 +26,9 @@ public class Recipe
         return ingredient;
     }
 
-    public string? AddInstructionsLine()
+    public string AddInstructionsLine()
     {
-        string? instructionsLine = ReadLine();
+        string instructionsLine = ReadLine();
         return instructionsLine;
     }
 

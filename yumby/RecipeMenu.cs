@@ -21,8 +21,8 @@ public static class RecipeMenu
              File.WriteAllText(jsonFilePath, jsonString);
              throw;
          }
-
-        Run();
+         
+         Run();
     }
     private static void Run()
     {
@@ -31,7 +31,6 @@ public static class RecipeMenu
         var menu = new Menu(prompt, options);
         int selectedIndex = menu.Run();
 
-    
         switch (selectedIndex)
         {
             case 0:
@@ -70,16 +69,12 @@ public static class RecipeMenu
 
     public static Dictionary<String, Recipe> ReadFromFilePopulateDictionary(Dictionary<String, Recipe> dict)
     {
-        var jsonDirectory = Path.Combine(Directory.GetCurrentDirectory(), "data");
-
-        var jsonFilePath = Path.Combine(jsonDirectory, "RecipeBook.json");
-        
-        var contents = File.ReadAllText(jsonFilePath);
-
-        var deserializedDictionary = JsonSerializer.Deserialize<Dictionary<String, Recipe>>(contents);
-
         // read from file and populate dictionary
-        
+        var jsonDirectory = Path.Combine(Directory.GetCurrentDirectory(), "data");
+        var jsonFilePath = Path.Combine(jsonDirectory, "RecipeBook.json");
+        var contents = File.ReadAllText(jsonFilePath);
+        var deserializedDictionary = JsonSerializer.Deserialize<Dictionary<String, Recipe>>(contents);
+ 
         return deserializedDictionary;
     }
     public static void WriteToFile(Dictionary<string, Recipe> dict)
@@ -88,13 +83,8 @@ public static class RecipeMenu
         //if it does, erase the file and create the new one using the dictionary
         //if it doesn't (1st recipe added probably) then create the new file 
         var jsonString = JsonSerializer.Serialize(dict);
-
         var jsonDirectory = Path.Combine(Directory.GetCurrentDirectory(), "data");
-
         var jsonFilePath = Path.Combine(jsonDirectory, "RecipeBook.json");
-        
         File.WriteAllText(jsonFilePath, jsonString);
-
-       
     }
 }
