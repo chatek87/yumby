@@ -11,7 +11,8 @@ public static class RecipeHelper
         
         // add name
         Write("Recipe name: ");
-        myRecipe.Name = ReadLine();
+        string? upperCaseRecipeName = ReadLine();
+        myRecipe.Name = upperCaseRecipeName?.ToUpper();
         Clear();
         
         // add ingredients
@@ -59,6 +60,7 @@ public static class RecipeHelper
         
         // add servings yielded
         double myRecipeServingsYielded;
+        Console.WriteLine("***make sure to enter a numerical value, or you'll get asked again!***");
         do Write($"<< {myRecipe.Name} servings >> \nEnter number of servings yielded: ");
         while (!double.TryParse(ReadLine(), out myRecipeServingsYielded));
         myRecipe.ServingsYielded = myRecipeServingsYielded;
@@ -81,17 +83,17 @@ public static class RecipeHelper
             
         }
 
+        Console.WriteLine(" ");
+
         Console.WriteLine("Instructions: ");
         foreach (var instructionLine in recipe.Instructions)
         {
             Console.WriteLine(instructionLine);
         }
-        
+
+        Console.WriteLine(" ");
         Console.WriteLine($"Makes {recipe.ServingsYielded} servings.");
     }
 
-    public static void ListAllRecipes()
-    {
-        
-    }
+
 }

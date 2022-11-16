@@ -27,7 +27,7 @@ public static class RecipeMenu
     private static void Run()
     {
         string prompt = "my recipes";
-        string[] options = { "enter new recipe", "browse all", "search", "back" };
+        string[] options = { "enter new recipe", "list all recipes", "search", "back" };
         var menu = new Menu(prompt, options);
         int selectedIndex = menu.Run();
 
@@ -52,11 +52,13 @@ public static class RecipeMenu
                 break;
             case 1:                
                 Clear();
-                WriteLine("You selected BROWSE RECIPES");
+                WriteLine("ALL RECIPES IN YOUR RECIPE BOOK:");
+                WriteLine(" ");
                 foreach (var entry in RecipeBook)
                 {
                     Console.WriteLine(entry.Key);
                 }
+                
                 WriteLine("Press any key to return to previous menu");
                 ReadKey(true);
                 Start();
@@ -64,9 +66,9 @@ public static class RecipeMenu
             case 2:
                 Clear();
                 WriteLine("You selected SEARCH RECIPES");
-                // TODO: IMPLEMENT SEARCH FEATURE
-                string searchedRecipeName = ReadLine();
                 
+                string searchedRecipeName = ReadLine();
+                searchedRecipeName = searchedRecipeName.ToUpper();
                 if (!RecipeBook.TryGetValue(searchedRecipeName, out Recipe veriviedSearchedRecipe))
                 {
                     Console.WriteLine($"Sorry, no recipe called \"{searchedRecipeName}\" found.");
@@ -76,8 +78,8 @@ public static class RecipeMenu
                     break;
                 }
                 
-
-                Console.WriteLine($"You selected {veriviedSearchedRecipe.Name}");
+                // TODO: ADD SUBMENU HERE FOR MENU OPERATIONS. VIEW, CHANGE SERVING SIZE, GENERATE SHOPPING LIST.
+                //Console.WriteLine($"You selected {veriviedSearchedRecipe.Name}");
                 RecipeHelper.DisplayRecipe(veriviedSearchedRecipe);
 
                 WriteLine("Press any key to return to previous menu");

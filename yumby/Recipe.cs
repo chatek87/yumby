@@ -13,9 +13,10 @@ public class Recipe
         var ingredient = new Ingredient();
         
         Write("Enter ingredient name: ");
-        ingredient.Name = ReadLine();
-
+        string? lowerCaseIngredientName = ReadLine();
+        ingredient.Name = lowerCaseIngredientName?.ToLower();
         double ingredientQuantity;
+        Console.WriteLine("***make sure to enter a numerical value, or you'll get asked again!***");
         do Write("Enter ingredient quantity: ");
         while (!double.TryParse(Console.ReadLine(), out ingredientQuantity));
         ingredient.Quantity = ingredientQuantity;
