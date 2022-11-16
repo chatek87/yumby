@@ -25,7 +25,6 @@ public static class RecipeHelper
         while (selectionIndex1 == 0)
         {
             Clear();
-            //TODO: LIST ALL CURRENTLY ADDED INGREDIENTS 
             WriteLine(prompt1);
             foreach (Ingredient ingredient in myRecipe.Ingredients)
             {
@@ -48,7 +47,6 @@ public static class RecipeHelper
         while (selectionIndex2 == 0)
         {
             Clear();
-            //TODO: LIST ALL CURRENTLY ADDED LINES OF INSTRUCTIONS 
             WriteLine(prompt2);
             foreach (string instructionLine in myRecipe.Instructions)
             {

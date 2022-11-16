@@ -10,7 +10,7 @@ public static class RecipeMenu
         // populate dictionary with JSON first
          try
          {
-             ReadFromFilePopulateDictionary(RecipeBook);
+             RecipeBook = ReadFromFilePopulateDictionary();
          }
          catch (Exception e)
          {
@@ -53,6 +53,10 @@ public static class RecipeMenu
             case 1:                
                 Clear();
                 WriteLine("You selected BROWSE RECIPES");
+                foreach (var entry in RecipeBook)
+                {
+                    Console.WriteLine(entry.Key);
+                }
                 break;
             case 2:
                 Clear();
@@ -67,7 +71,7 @@ public static class RecipeMenu
         MainMenu.Start();
     }
 
-    public static Dictionary<String, Recipe> ReadFromFilePopulateDictionary(Dictionary<String, Recipe> dict)
+    public static Dictionary<String, Recipe> ReadFromFilePopulateDictionary()
     {
         // read from file and populate dictionary
         var jsonDirectory = Path.Combine(Directory.GetCurrentDirectory(), "data");
