@@ -1,13 +1,11 @@
 ﻿using System.Text.Json;
 namespace yumby;
-using static Console;
 
 public static class RecipeMenu
 {
     public static Dictionary<string, Recipe> RecipeBook = new Dictionary<string, Recipe>();
     public static void Start()
     {
-        // populate dictionary with JSON first
          try
          {
              RecipeBook = ReadFromFilePopulateDictionary();
@@ -21,7 +19,6 @@ public static class RecipeMenu
              File.WriteAllText(jsonFilePath, jsonString);
              throw;
          }
-         
          Run();
     }
     private static void Run()
@@ -30,56 +27,50 @@ public static class RecipeMenu
         string[] options = { "enter new recipe", "list all recipes", "search", "back" };
         var menu = new Menu(prompt, options);
         int selectedIndex = menu.Run();
-
         switch (selectedIndex)
         {
             case 0:
-                Clear();
-                WriteLine("You selected ENTER NEW RECIPE");
+                Console.Clear();
+                Console.WriteLine("You selected ENTER NEW RECIPE");
                 var tempRecipe = RecipeHelper.CreateNewRecipe();
-                // foreach (var ingredient in tempRecipe.Ingredients)
-                // {
-                //     Console.WriteLine(tempRecipe.Ingredients.Name);
-                // }
-                //Console.WriteLine(tempRecipe.Ingredients);
                 string tempName = tempRecipe.Name;
                 RecipeBook.Add(tempName ,tempRecipe);
                 WriteToFile(RecipeBook);
 
-                WriteLine("Press any key to return to previous menu");
-                ReadKey(true);
+                Console.WriteLine("Press any key to return to previous menu");
+                Console.ReadKey(true);
                 Start();
                 break;
             case 1:                
-                Clear();
-                WriteLine("ALL RECIPES IN YOUR RECIPE BOOK:");
-                WriteLine(" ");
+                Console.Clear();
+                Console.WriteLine("My Recipe Book:");
+                Console.WriteLine(" ");
                 foreach (var entry in RecipeBook)
                 {
                     Console.WriteLine(entry.Key);
                 }
                 
-                WriteLine("Press any key to return to previous menu");
-                ReadKey(true);
+                Console.WriteLine("Press any key to return to previous menu");
+                Console.ReadKey(true);
                 Start();
                 break;
             case 2:
-                Clear();
-                WriteLine("You selected SEARCH RECIPES");
+                Console.Clear();
+                Console.WriteLine("You selected SEARCH RECIPES");
                 
-                string searchedRecipeName = ReadLine();
+                string searchedRecipeName = Console.ReadLine();
                 searchedRecipeName = searchedRecipeName.ToUpper();
-                if (!RecipeBook.TryGetValue(searchedRecipeName, out Recipe veriviedSearchedRecipe))
+                if (!RecipeBook.TryGetValue(searchedRecipeName, out Recipe selectedRecipe))
                 {
                     Console.WriteLine($"Sorry, no recipe called \"{searchedRecipeName}\" found.");
                     Console.WriteLine("Press any key to return to previous menu");
-                    ReadKey(true);
+                    Console.ReadKey(true);
                     Start();
                     break;
                 }
                 
                 // TODO: ADD SUBMENU HERE FOR MENU OPERATIONS. VIEW, CHANGE SERVING SIZE, GENERATE SHOPPING LIST.
-                string recipeSubMenuPrompt = " ";
+                string recipeSubMenuPrompt = $"<< {selectedRecipe.Name} >>\n";
                 string[] recipeSubMenuOptions = { "view recipe", "change serving size", "generate shopping list" };
                 var recipeSubMenu = new Menu(recipeSubMenuPrompt, recipeSubMenuOptions);
                 int recipeSubMenuSelectionIndex = recipeSubMenu.Run();
@@ -88,11 +79,13 @@ public static class RecipeMenu
                 {
                     case 0:
                         //view recipe
-                        RecipeHelper.DisplayRecipe(veriviedSearchedRecipe);
+                        RecipeHelper.DisplayRecipe(selectedRecipe);
                         break;
                     case 1:
                         //change serving size
                         Console.WriteLine("TODO: change serving size");
+                        var myConvertedRecipe = Utility.ChangeServingSize(selectedRecipe);
+                        RecipeHelper.DisplayRecipe(myConvertedRecipe);
                         break;
                     case 2:
                         //generate shopping list
@@ -100,9 +93,8 @@ public static class RecipeMenu
                         break;
                 }
                 
-                
-                WriteLine("Press any key to return to previous menu");
-                ReadKey(true);
+                Console.WriteLine("Press any key to return to previous menu");
+                Console.ReadKey(true);
                 Start();
                 break;
             case 3:
@@ -116,7 +108,6 @@ public static class RecipeMenu
 
     public static Dictionary<String, Recipe> ReadFromFilePopulateDictionary()
     {
-        // read from file and populate dictionary
         var jsonDirectory = Path.Combine(Directory.GetCurrentDirectory(), "data");
         var jsonFilePath = Path.Combine(jsonDirectory, "RecipeBook.json");
         var contents = File.ReadAllText(jsonFilePath);
@@ -126,9 +117,6 @@ public static class RecipeMenu
     }
     public static void WriteToFile(Dictionary<string, Recipe> dict)
     {
-        //check to see if file exists in directory already
-        //if it does, erase the file and create the new one using the dictionary
-        //if it doesn't (1st recipe added probably) then create the new file 
         var jsonString = JsonSerializer.Serialize(dict);
         var jsonDirectory = Path.Combine(Directory.GetCurrentDirectory(), "data");
         var jsonFilePath = Path.Combine(jsonDirectory, "RecipeBook.json");

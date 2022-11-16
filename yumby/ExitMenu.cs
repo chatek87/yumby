@@ -1,5 +1,4 @@
 ﻿namespace yumby;
-using static System.Console;
 
 public static class ExitMenu
 {
@@ -14,7 +13,6 @@ public static class ExitMenu
         string[] options = { "yes", "no, go back" };
         var menu = new Menu(prompt, options);
         int selectionIndex = menu.Run();
-
         switch (selectionIndex)
         {
             case 0:

@@ -1,21 +1,18 @@
 ﻿namespace yumby;
-using static Console;
-
 
 public static class RecipeHelper
 {
     public static Recipe CreateNewRecipe()
     {
-        // initialize recipe
         var myRecipe = new Recipe();
         
-        // add name
-        Write("Recipe name: ");
-        string? upperCaseRecipeName = ReadLine();
-        myRecipe.Name = upperCaseRecipeName?.ToUpper();
-        Clear();
         
-        // add ingredients
+        Console.Write("Recipe name: ");
+        string? upperCaseRecipeName = Console.ReadLine();
+        myRecipe.Name = upperCaseRecipeName?.ToUpper();
+        Console.Clear();
+        
+        
         string prompt1 = $"<< {myRecipe.Name} ingredients >>";
         string[] options1 = { "add another ingredient", "done adding ingredients" };
         Console.WriteLine(prompt1);
@@ -25,21 +22,21 @@ public static class RecipeHelper
         int selectionIndex1 = menu1.Run();
         while (selectionIndex1 == 0)
         {
-            Clear();
-            WriteLine(prompt1);
+            Console.Clear();
+            Console.WriteLine(prompt1);
             foreach (Ingredient ingredient in myRecipe.Ingredients)
             {
-                WriteLine($"{ingredient.Name} added to recipe!");
+                Console.WriteLine($"{ingredient.Name} added to recipe!");
             }
             myRecipe.Ingredients.Add(myRecipe.AddNewIngredient());
             selectionIndex1 = menu1.Run();
         }
-        Clear();
-
-        // add instructions
+        Console.Clear();
+        
+        
         string prompt2 = $"<< {myRecipe.Name} instructions >> ";
         string[] options2 = { "add another line", "finish" };
-        WriteLine(prompt2);
+        Console.WriteLine(prompt2);
         Console.WriteLine("(type one line at a time, followed by \"ENTER\")");
         myRecipe.Instructions = new List<string>();
         myRecipe.Instructions.Add(myRecipe.AddInstructionsLine());
@@ -47,28 +44,27 @@ public static class RecipeHelper
         int selectionIndex2 = menu2.Run();
         while (selectionIndex2 == 0)
         {
-            Clear();
-            WriteLine(prompt2);
+            Console.Clear();
+            Console.WriteLine(prompt2);
             foreach (string instructionLine in myRecipe.Instructions)
             {
-                WriteLine(instructionLine);
+                Console.WriteLine(instructionLine);
             }
             myRecipe.Instructions.Add((myRecipe.AddInstructionsLine()));
             selectionIndex2 = menu2.Run();
         }
-        Clear();
+        Console.Clear();
         
-        // add servings yielded
+        
         double myRecipeServingsYielded;
         Console.WriteLine("***make sure to enter a numerical value, or you'll get asked again!***");
-        do Write($"<< {myRecipe.Name} servings >> \nEnter number of servings yielded: ");
-        while (!double.TryParse(ReadLine(), out myRecipeServingsYielded));
+        do Console.Write($"<< {myRecipe.Name} servings >> \nEnter number of servings yielded: ");
+        while (!double.TryParse(Console.ReadLine(), out myRecipeServingsYielded));
         myRecipe.ServingsYielded = myRecipeServingsYielded;
-        Clear();
+        Console.Clear();
         
         
         Console.WriteLine($"{myRecipe.Name} Added!");
-        
         return myRecipe;
     }
     
@@ -80,9 +76,7 @@ public static class RecipeHelper
         foreach (var ingredient in recipe.Ingredients)
         {
             Console.WriteLine($"{ingredient.Quantity} {ingredient.Unit} {ingredient.Name}");
-            
         }
-
         Console.WriteLine(" ");
 
         Console.WriteLine("Instructions: ");
@@ -90,10 +84,8 @@ public static class RecipeHelper
         {
             Console.WriteLine(instructionLine);
         }
-
         Console.WriteLine(" ");
+
         Console.WriteLine($"Makes {recipe.ServingsYielded} servings.");
     }
-
-
 }

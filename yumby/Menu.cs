@@ -1,5 +1,4 @@
 ﻿namespace yumby;
-using static Console;        
 
 class Menu
 {
@@ -16,7 +15,7 @@ class Menu
 
     private void DisplayOptions()
     {
-        WriteLine(_prompt);
+        Console.WriteLine(_prompt);
         //WriteLine(" ");
         for (int i = 0; i < _options.Length; i++)
         {
@@ -28,20 +27,17 @@ class Menu
             {
                 prefix = ":) <<";
                 suffix = ">> (:";
-                ForegroundColor = ConsoleColor.Yellow;
-                // BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.Yellow;
             }
             else
             {
                 prefix = "     ";
                 suffix = "     ";
-                ForegroundColor = ConsoleColor.DarkMagenta;
-                // BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
             }
-
-            WriteLine($"{prefix} {currentOption} {suffix}");
+            Console.WriteLine($"{prefix} {currentOption} {suffix}");
         }
-        ForegroundColor = ConsoleColor.DarkMagenta;
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
     }
 
     public int Run()
@@ -49,15 +45,10 @@ class Menu
         ConsoleKey keyPressed;
         do
         {
-            //BackgroundColor = ConsoleColor.Black;
-            //ForegroundColor = ConsoleColor.Yellow;
-            Clear();
+            Console.Clear();
             DisplayOptions();
-
-            ConsoleKeyInfo keyInfo = ReadKey(true);
+            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
             keyPressed = keyInfo.Key;
-
-            // Update SelectionIndex based on arrow keys.
             if (keyPressed == ConsoleKey.UpArrow)
             {
                 _selectionIndex--;
@@ -73,7 +64,6 @@ class Menu
                 {
                     _selectionIndex = 0;
                 }
-
             }
         } 
         while (keyPressed != ConsoleKey.Enter);

@@ -1,5 +1,4 @@
 ﻿namespace yumby;
-using static Console;
 
 public static class MainMenu
 {
@@ -31,11 +30,11 @@ public static class MainMenu
 
     private static void DisplayAboutInfo()
     {
-        Clear();
-        WriteLine("Yumby is a personal recipe keeper");
-        WriteLine("use it to search, store, edit, and find recipes");
-        WriteLine("Press any key to return to the Main Menu");
-        ReadKey(true);
+        Console.Clear();
+        Console.WriteLine("Yumby is a personal recipe keeper");
+        Console.WriteLine("use it to search, store, edit, and find recipes");
+        Console.WriteLine("Press any key to return to the Main Menu");
+        Console.ReadKey(true);
         Run();
     }
 }
