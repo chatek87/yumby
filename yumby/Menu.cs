@@ -17,7 +17,7 @@ class Menu
     private void DisplayOptions()
     {
         WriteLine(_prompt);
-        WriteLine(" ");
+        //WriteLine(" ");
         for (int i = 0; i < _options.Length; i++)
         {
             string currentOption = _options[i];
