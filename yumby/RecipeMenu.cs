@@ -79,9 +79,28 @@ public static class RecipeMenu
                 }
                 
                 // TODO: ADD SUBMENU HERE FOR MENU OPERATIONS. VIEW, CHANGE SERVING SIZE, GENERATE SHOPPING LIST.
-                //Console.WriteLine($"You selected {veriviedSearchedRecipe.Name}");
-                RecipeHelper.DisplayRecipe(veriviedSearchedRecipe);
+                string recipeSubMenuPrompt = " ";
+                string[] recipeSubMenuOptions = { "view recipe", "change serving size", "generate shopping list" };
+                var recipeSubMenu = new Menu(recipeSubMenuPrompt, recipeSubMenuOptions);
+                int recipeSubMenuSelectionIndex = recipeSubMenu.Run();
 
+                switch (recipeSubMenuSelectionIndex)
+                {
+                    case 0:
+                        //view recipe
+                        RecipeHelper.DisplayRecipe(veriviedSearchedRecipe);
+                        break;
+                    case 1:
+                        //change serving size
+                        Console.WriteLine("TODO: change serving size");
+                        break;
+                    case 2:
+                        //generate shopping list
+                        Console.WriteLine("TODO: generate shopping list, write to text file?");
+                        break;
+                }
+                
+                
                 WriteLine("Press any key to return to previous menu");
                 ReadKey(true);
                 Start();
