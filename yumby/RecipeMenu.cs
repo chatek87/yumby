@@ -41,7 +41,7 @@ public static class RecipeMenu
                 // {
                 //     Console.WriteLine(tempRecipe.Ingredients.Name);
                 // }
-                Console.WriteLine(tempRecipe.Ingredients);
+                //Console.WriteLine(tempRecipe.Ingredients);
                 string tempName = tempRecipe.Name;
                 RecipeBook.Add(tempName ,tempRecipe);
                 WriteToFile(RecipeBook);
