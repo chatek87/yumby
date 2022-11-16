@@ -57,18 +57,40 @@ public static class RecipeMenu
                 {
                     Console.WriteLine(entry.Key);
                 }
+                WriteLine("Press any key to return to previous menu");
+                ReadKey(true);
+                Start();
                 break;
             case 2:
                 Clear();
                 WriteLine("You selected SEARCH RECIPES");
+                // TODO: IMPLEMENT SEARCH FEATURE
+                string searchedRecipeName = ReadLine();
+                
+                if (!RecipeBook.TryGetValue(searchedRecipeName, out Recipe veriviedSearchedRecipe))
+                {
+                    Console.WriteLine($"Sorry, no recipe called \"{searchedRecipeName}\" found.");
+                    Console.WriteLine("Press any key to return to previous menu");
+                    ReadKey(true);
+                    Start();
+                    break;
+                }
+                
+
+                Console.WriteLine($"You selected {veriviedSearchedRecipe.Name}");
+                RecipeHelper.DisplayRecipe(veriviedSearchedRecipe);
+
+                WriteLine("Press any key to return to previous menu");
+                ReadKey(true);
+                Start();
                 break;
             case 3:
                 MainMenu.Start();
                 break;
         }
-        WriteLine("Press any key to return to Main Menu");
-        ReadKey(true);
-        MainMenu.Start();
+        // WriteLine("Press any key to return to Main Menu");
+        // ReadKey(true);
+        // MainMenu.Start();
     }
 
     public static Dictionary<String, Recipe> ReadFromFilePopulateDictionary()

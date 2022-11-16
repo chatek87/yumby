@@ -74,9 +74,20 @@ public static class RecipeHelper
     {
         Console.WriteLine(recipe.Name);
         Console.WriteLine(" ");
-        Console.WriteLine(recipe.Ingredients);
-        Console.WriteLine(recipe.Instructions);
-        Console.WriteLine(recipe.ServingsYielded);
+        
+        foreach (var ingredient in recipe.Ingredients)
+        {
+            Console.WriteLine($"{ingredient.Quantity} {ingredient.Unit} {ingredient.Name}");
+            
+        }
+
+        Console.WriteLine("Instructions: ");
+        foreach (var instructionLine in recipe.Instructions)
+        {
+            Console.WriteLine(instructionLine);
+        }
+        
+        Console.WriteLine($"Makes {recipe.ServingsYielded} servings.");
     }
 
     public static void ListAllRecipes()
