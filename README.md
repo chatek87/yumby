@@ -6,8 +6,17 @@ a personal recipe book application
 
 #####  code KY Software Development 1 capstone project  </code>
 
-yumby is a recipe keeper console application written in C#.  
-I wanted to make an application that could store recipes and easily adjust ingredient quantities based upon how many servings were desired per a particular recipe.
+yumby is a console application written in C# that allows a user to enter, store, and recall recipe information.  
+yumby also allows a user to easily adjust a recipe to suit the desired number of portions served.  
+
+
+yumby handles persistent data by serializing a dictionary<string RecipeName, Recipe> to JSON.  
+Each recipe entry is saved as a Recipe object, which contains fields detailing the ingredients, quantities, and instructions pertinent to the recipe.
+
+
+
+  
+
  
 
 features list:
