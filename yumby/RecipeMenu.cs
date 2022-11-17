@@ -25,8 +25,8 @@ public static class RecipeMenu
     {
         string prompt = "my recipes";
         string[] options = { "enter new recipe", "list all recipes", "search", "back" };
-        var menu = new Menu(prompt, options);
-        int selectedIndex = menu.Run();
+        var recipeMenu = new Menu(prompt, options);
+        int selectedIndex = recipeMenu.Run();
         switch (selectedIndex)
         {
             case 0:
@@ -56,7 +56,7 @@ public static class RecipeMenu
                 break;
             case 2:
                 Console.Clear();
-                Console.WriteLine("You selected SEARCH RECIPES");
+                Console.WriteLine("Enter the name of an existing recipe:");
                 
                 string searchedRecipeName = Console.ReadLine();
                 searchedRecipeName = searchedRecipeName.ToUpper();
@@ -68,35 +68,56 @@ public static class RecipeMenu
                     Start();
                     break;
                 }
-                
-                // TODO: ADD SUBMENU HERE FOR MENU OPERATIONS. VIEW, CHANGE SERVING SIZE, GENERATE SHOPPING LIST.
-                string recipeSubMenuPrompt = $"<< {selectedRecipe.Name} >>\n";
-                string[] recipeSubMenuOptions = { "view recipe", "change serving size", "generate shopping list" };
-                var recipeSubMenu = new Menu(recipeSubMenuPrompt, recipeSubMenuOptions);
-                int recipeSubMenuSelectionIndex = recipeSubMenu.Run();
 
-                switch (recipeSubMenuSelectionIndex)
-                {
-                    case 0:
-                        //view recipe
-                        RecipeHelper.DisplayRecipe(selectedRecipe);
-                        break;
-                    case 1:
-                        //change serving size
-                        Console.WriteLine("TODO: change serving size");
-                        var myConvertedRecipe = Utility.ChangeServingSize(selectedRecipe);
-                        RecipeHelper.DisplayRecipe(myConvertedRecipe);
-                        break;
-                    case 2:
-                        //generate shopping list
-                        Console.WriteLine("TODO: generate shopping list, write to text file?");
-                        break;
-                }
-                
-                Console.WriteLine("Press any key to return to previous menu");
-                Console.ReadKey(true);
-                Start();
+                RecipeSubMenu.Start(selectedRecipe);
                 break;
+                
+                // string recipeSubMenuPrompt = $"<< {selectedRecipe.Name} >>\n";
+                // string[] recipeSubMenuOptions = { "view recipe", "change serving size", "generate shopping list", "back" };
+                // var recipeSubMenu = new Menu(recipeSubMenuPrompt, recipeSubMenuOptions);
+                // int recipeSubMenuSelectionIndex = recipeSubMenu.Run();
+                //
+                // switch (recipeSubMenuSelectionIndex)
+                // {
+                //     case 0:
+                //         //view recipe
+                //         RecipeHelper.DisplayRecipe(selectedRecipe);
+                //         
+                //         Console.WriteLine("\n\n");
+                //         Console.WriteLine("Press any key to return to previous menu");
+                //         Console.ReadKey(true);
+                //         recipeSubMenu.Run();
+                //         break;
+                //     case 1:
+                //         //change serving size
+                //         var myConvertedRecipe = Utility.ChangeServingSize(selectedRecipe);
+                //         RecipeHelper.DisplayRecipe(myConvertedRecipe);
+                //         
+                //         Console.WriteLine("\n\n");
+                //         Console.WriteLine("Press any key to return to previous menu");
+                //         Console.ReadKey(true);
+                //         recipeSubMenu.Run();
+                //         break;
+                //     case 2:
+                //         //generate shopping list
+                //         // TODO: GENERATE SHOPPING LIST METHOD. 
+                //         Console.WriteLine("TODO: generate shopping list, write to text file?");
+                //         
+                //         Console.WriteLine("\n\n");
+                //         Console.WriteLine("Press any key to return to previous menu");
+                //         Console.ReadKey(true);
+                //         recipeSubMenu.Run();
+                //         break;
+                //     case 3:
+                //         //go back
+                //         recipeMenu.Run();
+                //         break;
+                // }
+                
+                // Console.WriteLine("Press any key to return to previous menu");
+                // Console.ReadKey(true);
+                // Start();
+                // break;
             case 3:
                 MainMenu.Start();
                 break;

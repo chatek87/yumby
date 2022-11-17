@@ -13,6 +13,14 @@ class Menu
         _selectionIndex = 0;
     }
 
+    // public Menu(string prompt, string[] options, Recipe recipeInput)
+    // {
+    //     _prompt = prompt;
+    //     _options = options;
+    //     _selectionIndex = 0;
+    //     var recipeSelection = recipeInput;
+    // }
+
     private void DisplayOptions()
     {
         Console.WriteLine(_prompt);
