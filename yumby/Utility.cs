@@ -2,21 +2,20 @@
 
 public static class Utility
 {
-    //TODO: ADD conversion method
     public static Recipe ChangeServingSize(Recipe convertedRecipe)
     {
         Console.WriteLine("Enter the desired number of servings yielded for the recipe: ");
-        double desiredServings;
-        while (!double.TryParse(Console.ReadLine(), out desiredServings));
+        decimal desiredServings;
+        while (!decimal.TryParse(Console.ReadLine(), out desiredServings));
 
-        double conversionFactor = desiredServings /convertedRecipe.ServingsYielded;
+        var conversionFactor = desiredServings /convertedRecipe.ServingsYielded;
         
         foreach (var ingredient in convertedRecipe.Ingredients)
         {
-            ingredient.Quantity = ingredient.Quantity * conversionFactor;
+            ingredient.Quantity = decimal.Round(ingredient.Quantity * conversionFactor, 2); //;
         }
 
-        convertedRecipe.ServingsYielded = desiredServings;
+        convertedRecipe.ServingsYielded = decimal.Round(desiredServings);
         
         return convertedRecipe;
     }    

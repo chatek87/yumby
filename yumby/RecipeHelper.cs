@@ -56,10 +56,10 @@ public static class RecipeHelper
         Console.Clear();
         
         
-        double myRecipeServingsYielded;
+        decimal myRecipeServingsYielded;
         Console.WriteLine("***make sure to enter a numerical value, or you'll get asked again!***");
         do Console.Write($"<< {myRecipe.Name} servings >> \nEnter number of servings yielded: ");
-        while (!double.TryParse(Console.ReadLine(), out myRecipeServingsYielded));
+        while (!decimal.TryParse(Console.ReadLine(), out myRecipeServingsYielded));
         myRecipe.ServingsYielded = myRecipeServingsYielded;
         Console.Clear();
         
