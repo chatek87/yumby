@@ -4,9 +4,12 @@ public static class Utility
 {
     public static Recipe ChangeServingSize(Recipe convertedRecipe)
     {
-        Console.Write($"Enter the desired number of servings yielded of {convertedRecipe.Name}: ");
         decimal desiredServings;
         decimal conversionFactor;
+        do
+        {
+            Console.Write($"Enter the desired number of servings yielded of {convertedRecipe.Name} (must be numerical): ");
+        }        
         while (!decimal.TryParse(Console.ReadLine(), out desiredServings));
         
         if (desiredServings == 0)

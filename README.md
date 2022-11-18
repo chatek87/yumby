@@ -14,7 +14,7 @@ Each recipe entry is saved as a Recipe object, which contains fields detailing t
  
 ### instructions:
 use "list all recipes" to see all the (poorly entered example) recipe entries in your Recipe Book  
-enter the name of an existing recipe entry in "search" to view recipe/shopping list, and to change desired number of servings  
+enter the name of an existing recipe entry in "search for recipe" to view recipe/shopping list, and to change desired number of servings  
 
 ### features list:
 * Implement a “master loop” console application where the user can repeatedly enter commands/perform actions, including choosing to exit the program  
@@ -32,6 +32,6 @@ enter the name of an existing recipe entry in "search" to view recipe/shopping l
 ### development roadmap for the future:
 * Add edit/delete recipe functionality
 * Allow user to select several recipes to add to a *PRINTABLE* shopping list (written to text file)
-* Implement search recipesby ingredient feature
+* Implement search recipes by ingredient feature
 
 

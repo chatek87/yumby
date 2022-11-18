@@ -24,43 +24,22 @@ public static class RecipeMenu
     private static void Run()
     {
         string prompt = "my recipes";
-        string[] options = { "enter new recipe", "list all recipes", "search", "back" };
+        string[] options = { "search for recipe", "enter new recipe", "list all recipes", "back" };
         var recipeMenu = new Menu(prompt, options);
         int selectedIndex = recipeMenu.Run();
         switch (selectedIndex)
         {
             case 0:
-                //enter new recipe
+                //search
                 Console.Clear();
-                Console.WriteLine("You selected ENTER NEW RECIPE");
-                var tempRecipe = RecipeHelper.CreateNewRecipe();
-                string tempName = tempRecipe.Name;
-                RecipeBook.Add(tempName ,tempRecipe);
-                WriteToFile(RecipeBook);
-
-                Console.WriteLine("Press any key to return to previous menu");
-                Console.ReadKey(true);
-                Start();
-                break;
-            case 1:   
-                //lift all recipes
-                Console.Clear();
-                Console.WriteLine("My Recipe Book:");
-                Console.WriteLine(" ");
+                Console.WriteLine("::::::::::::");
                 foreach (var entry in RecipeBook)
                 {
                     Console.WriteLine(entry.Key);
                 }
+                Console.WriteLine("::::::::::::");
 
-                Console.WriteLine("\n");
-                Console.WriteLine("Press any key to return to previous menu");
-                Console.ReadKey(true);
-                Start();
-                break;
-            case 2:
-                //search
-                Console.Clear();
-                Console.WriteLine("Enter the name of an existing recipe:");
+                Console.WriteLine("Enter the name of an existing recipe (see cheat sheet above ^):");
                 
                 string searchedRecipeName = Console.ReadLine();
                 searchedRecipeName = searchedRecipeName.ToUpper();
@@ -73,6 +52,34 @@ public static class RecipeMenu
                     break;
                 }
                 RecipeSubMenu.Start(selectedRecipe);
+                break;
+            case 1:
+                //enter new recipe
+                Console.Clear();
+                Console.WriteLine("You selected ENTER NEW RECIPE");
+                var tempRecipe = RecipeHelper.CreateNewRecipe();
+                string tempName = tempRecipe.Name;
+                RecipeBook.Add(tempName ,tempRecipe);
+                WriteToFile(RecipeBook);
+
+                Console.WriteLine("Press any key to return to previous menu");
+                Console.ReadKey(true);
+                Start();
+                break;
+            case 2:   
+                //list all recipes
+                Console.Clear();
+                Console.WriteLine("My Recipe Book:");
+                Console.WriteLine(" ");
+                foreach (var entry in RecipeBook)
+                {
+                    Console.WriteLine(entry.Key);
+                }
+
+                Console.WriteLine("\n");
+                Console.WriteLine("Press any key to return to previous menu");
+                Console.ReadKey(true);
+                Start();
                 break;
             case 3:
                 //back
