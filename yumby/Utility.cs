@@ -4,12 +4,25 @@ public static class Utility
 {
     public static Recipe ChangeServingSize(Recipe convertedRecipe)
     {
-        Console.Write("Enter the desired number of servings yielded for the recipe: ");
+        Console.Write($"Enter the desired number of servings yielded of {convertedRecipe.Name}: ");
         decimal desiredServings;
+        decimal conversionFactor;
         while (!decimal.TryParse(Console.ReadLine(), out desiredServings));
-
-        var conversionFactor = desiredServings /convertedRecipe.ServingsYielded;
         
+        if (desiredServings == 0)
+        {
+            desiredServings = 1;
+        }
+        
+        if (convertedRecipe.ServingsYielded == 0)
+        {
+            conversionFactor = 1;
+        }
+        else
+        {
+            conversionFactor = desiredServings / convertedRecipe.ServingsYielded;
+        }
+
         foreach (var ingredient in convertedRecipe.Ingredients)
         {
             ingredient.Quantity = decimal.Round(ingredient.Quantity * conversionFactor, 2); //;

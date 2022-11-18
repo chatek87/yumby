@@ -49,7 +49,8 @@ public static class RecipeMenu
                 {
                     Console.WriteLine(entry.Key);
                 }
-                
+
+                Console.WriteLine("\n");
                 Console.WriteLine("Press any key to return to previous menu");
                 Console.ReadKey(true);
                 Start();
@@ -68,63 +69,12 @@ public static class RecipeMenu
                     Start();
                     break;
                 }
-
                 RecipeSubMenu.Start(selectedRecipe);
                 break;
-                
-                // string recipeSubMenuPrompt = $"<< {selectedRecipe.Name} >>\n";
-                // string[] recipeSubMenuOptions = { "view recipe", "change serving size", "generate shopping list", "back" };
-                // var recipeSubMenu = new Menu(recipeSubMenuPrompt, recipeSubMenuOptions);
-                // int recipeSubMenuSelectionIndex = recipeSubMenu.Run();
-                //
-                // switch (recipeSubMenuSelectionIndex)
-                // {
-                //     case 0:
-                //         //view recipe
-                //         RecipeHelper.DisplayRecipe(selectedRecipe);
-                //         
-                //         Console.WriteLine("\n\n");
-                //         Console.WriteLine("Press any key to return to previous menu");
-                //         Console.ReadKey(true);
-                //         recipeSubMenu.Run();
-                //         break;
-                //     case 1:
-                //         //change serving size
-                //         var myConvertedRecipe = Utility.ChangeServingSize(selectedRecipe);
-                //         RecipeHelper.DisplayRecipe(myConvertedRecipe);
-                //         
-                //         Console.WriteLine("\n\n");
-                //         Console.WriteLine("Press any key to return to previous menu");
-                //         Console.ReadKey(true);
-                //         recipeSubMenu.Run();
-                //         break;
-                //     case 2:
-                //         //generate shopping list
-                //         // TODO: GENERATE SHOPPING LIST METHOD. 
-                //         Console.WriteLine("TODO: generate shopping list, write to text file?");
-                //         
-                //         Console.WriteLine("\n\n");
-                //         Console.WriteLine("Press any key to return to previous menu");
-                //         Console.ReadKey(true);
-                //         recipeSubMenu.Run();
-                //         break;
-                //     case 3:
-                //         //go back
-                //         recipeMenu.Run();
-                //         break;
-                // }
-                
-                // Console.WriteLine("Press any key to return to previous menu");
-                // Console.ReadKey(true);
-                // Start();
-                // break;
             case 3:
                 MainMenu.Start();
                 break;
         }
-        // WriteLine("Press any key to return to Main Menu");
-        // ReadKey(true);
-        // MainMenu.Start();
     }
 
     public static Dictionary<String, Recipe> ReadFromFilePopulateDictionary()

@@ -21,7 +21,7 @@ Each recipe entry is saved as a Recipe object, which contains fields detailing t
 
 features list:
 * Implement a “master loop” console application where the user can repeatedly enter commands/perform actions, including choosing to exit the program  
-<code> see: Menu.cs, ExitMenu.cs, et al.</code> 
+<code> see: Menu.cs, MainMenu.cs, et al.</code> 
 
 * Create a dictionary or list, populate it with several values, retrieve at least one value, and use it in your program  
 <code> see: Recipe.cs, RecipeMenu.cs</code>
@@ -30,6 +30,6 @@ features list:
 <code> see: RecipeMenu.cs</code>
 
 * Build a conversion tool that converts user input to another type and displays it (ex: converts cups to grams)  
-<code> see: Utility.cs</code>
+<code> see: Utility.cs, RecipeSubMenu.cs</code>
 
 
