@@ -13,8 +13,9 @@ yumby handles persistent data by serializing a dictionary<string RecipeName, Rec
 Each recipe entry is saved as a Recipe object, which contains fields detailing the ingredients, quantities, and instructions pertinent to the recipe.  
  
 ### instructions:
-use "list all recipes" to see all the (poorly entered example) recipe entries in your Recipe Book  
-enter the name of an existing recipe entry in "search for recipe" to view recipe/shopping list, and to change desired number of servings  
+Use the up/down arrow keys to navigate menu and ENTER to select menu option.  
+Select "list all recipes" to see all the (poorly entered) example recipe entries in your Recipe Book, or enter your own!  
+Enter the name of an existing recipe entry in "search for recipe" to view recipe/shopping list, and to change desired number of servings.  
 
 ### features list:
 * Implement a “master loop” console application where the user can repeatedly enter commands/perform actions, including choosing to exit the program  
