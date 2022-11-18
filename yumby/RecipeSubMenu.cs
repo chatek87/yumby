@@ -6,14 +6,14 @@ public static class RecipeSubMenu
     {
         Run(recipe);
     }
-
+    
     private static void Run(Recipe recipeInput)
     {
         while (true)
         {
             var selectedRecipe = recipeInput;
             string prompt = $"<< {selectedRecipe.Name} >>\n";
-            string[] options = { "view recipe", "change serving size", "generate shopping list", "back" };
+            string[] options = { "view recipe", "change serving size", "view shopping list", "back" };
             var recipeSubMenu = new Menu(prompt, options);
             int selectionIndex = recipeSubMenu.Run();
 
@@ -42,10 +42,9 @@ public static class RecipeSubMenu
                     recipeInput = selectedRecipe;
                     continue;
                 case 2:
-                    //generate shopping list
+                    //view shopping list
                     Console.Clear();
-                    // TODO: GENERATE SHOPPING LIST METHOD. 
-                    Console.WriteLine("TODO: generate shopping list, write to text file?");
+                    RecipeHelper.DisplayShoppingList(selectedRecipe);
 
                     Console.WriteLine("\n");
                     Console.WriteLine("Press any key to return to previous menu");

@@ -8,18 +8,15 @@ a personal recipe book application
 
 yumby is a console application written in C# that allows a user to enter, store, and recall recipe information.  
 yumby also allows a user to easily adjust a recipe to suit the desired number of portions served.  
-
-
-yumby handles persistent data by serializing a dictionary<string RecipeName, Recipe> to JSON.  
-Each recipe entry is saved as a Recipe object, which contains fields detailing the ingredients, quantities, and instructions pertinent to the recipe.
-
-
-
   
-
+yumby handles persistent data by serializing a dictionary<string RecipeName, Recipe> to JSON.  
+Each recipe entry is saved as a Recipe object, which contains fields detailing the ingredients, quantities, and instructions pertinent to the recipe.  
  
+### instructions:
+use "list all recipes" to see all the (poorly entered example) recipe entries in your Recipe Book  
+enter the name of an existing recipe entry in "search" to view recipe/shopping list, and to change desired number of servings  
 
-features list:
+### features list:
 * Implement a “master loop” console application where the user can repeatedly enter commands/perform actions, including choosing to exit the program  
 <code> see: Menu.cs, MainMenu.cs, et al.</code> 
 
@@ -31,5 +28,10 @@ features list:
 
 * Build a conversion tool that converts user input to another type and displays it (ex: converts cups to grams)  
 <code> see: Utility.cs, RecipeSubMenu.cs</code>
+
+### development roadmap for the future:
+* Add edit/delete recipe functionality
+* Allow user to select several recipes to add to a *PRINTABLE* shopping list (written to text file)
+* Implement search recipesby ingredient feature
 
 

@@ -5,13 +5,11 @@ public static class RecipeHelper
     public static Recipe CreateNewRecipe()
     {
         var myRecipe = new Recipe();
-        
-        
+
         Console.Write("Recipe name: ");
         string? upperCaseRecipeName = Console.ReadLine();
         myRecipe.Name = upperCaseRecipeName?.ToUpper();
         Console.Clear();
-        
         
         string prompt1 = $"<< {myRecipe.Name} ingredients >>";
         string[] options1 = { "add another ingredient", "done adding ingredients" };
@@ -32,8 +30,7 @@ public static class RecipeHelper
             selectionIndex1 = menu1.Run();
         }
         Console.Clear();
-        
-        
+
         string prompt2 = $"<< {myRecipe.Name} instructions >> ";
         string[] options2 = { "add another line", "finish" };
         Console.WriteLine(prompt2);
@@ -54,16 +51,18 @@ public static class RecipeHelper
             selectionIndex2 = menu2.Run();
         }
         Console.Clear();
-        
-        
+
         decimal myRecipeServingsYielded;
-        Console.WriteLine("***make sure to enter a numerical value, or you'll get asked again!***");
-        do Console.Write($"<< {myRecipe.Name} servings >> \nEnter number of servings yielded: ");
+        do Console.Write($"<< {myRecipe.Name} servings >> \nEnter number of servings yielded (must be numerical value): ");
         while (!decimal.TryParse(Console.ReadLine(), out myRecipeServingsYielded));
         myRecipe.ServingsYielded = myRecipeServingsYielded;
+        if (myRecipe.ServingsYielded == 0)
+        {
+            myRecipe.ServingsYielded = 1;
+            Console.WriteLine("Servings yielded set to 1 by default");
+        }
         Console.Clear();
-        
-        
+
         Console.WriteLine($"{myRecipe.Name} Added!");
         return myRecipe;
     }
@@ -87,5 +86,17 @@ public static class RecipeHelper
         Console.WriteLine(" ");
 
         Console.WriteLine($"Makes {recipe.ServingsYielded} servings.");
+    }
+
+    public static void DisplayShoppingList(Recipe recipe)
+    {
+        Console.WriteLine($"Shopping list for {recipe.Name}\nServes {recipe.ServingsYielded}");
+        Console.WriteLine(" ");
+        
+        foreach (var ingredient in recipe.Ingredients)
+        {
+            Console.WriteLine($"{ingredient.Quantity} {ingredient.Unit} {ingredient.Name}");
+        }
+        Console.WriteLine(" ");
     }
 }

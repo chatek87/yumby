@@ -30,6 +30,7 @@ public static class RecipeMenu
         switch (selectedIndex)
         {
             case 0:
+                //enter new recipe
                 Console.Clear();
                 Console.WriteLine("You selected ENTER NEW RECIPE");
                 var tempRecipe = RecipeHelper.CreateNewRecipe();
@@ -41,7 +42,8 @@ public static class RecipeMenu
                 Console.ReadKey(true);
                 Start();
                 break;
-            case 1:                
+            case 1:   
+                //lift all recipes
                 Console.Clear();
                 Console.WriteLine("My Recipe Book:");
                 Console.WriteLine(" ");
@@ -56,6 +58,7 @@ public static class RecipeMenu
                 Start();
                 break;
             case 2:
+                //search
                 Console.Clear();
                 Console.WriteLine("Enter the name of an existing recipe:");
                 
@@ -72,6 +75,7 @@ public static class RecipeMenu
                 RecipeSubMenu.Start(selectedRecipe);
                 break;
             case 3:
+                //back
                 MainMenu.Start();
                 break;
         }
