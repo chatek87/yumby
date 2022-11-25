@@ -31,7 +31,7 @@ public static class Utility
             ingredient.Quantity = decimal.Round(ingredient.Quantity * conversionFactor, 2); //;
         }
 
-        convertedRecipe.ServingsYielded = decimal.Round(desiredServings);
+        convertedRecipe.ServingsYielded = decimal.Round(desiredServings, 2);
         
         return convertedRecipe;
     }    
